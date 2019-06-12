@@ -1,16 +1,43 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
     <head>
         <title>Book Search Page</title>
+        <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+        <!--<script src="/jquery.tablesort.js"></script>-->
+        <!--<script src="jquery.tablesort.js" th:src="@{/jquery.tablesort.js}"></script>-->
+        <!--<script src="jquery.tablesort.js" th:src="@{/js/jquery.tablesort.js}"></script>-->
+        <!--<script type="text/javascript" th:src="@{jquery.tablesort.js}"></script>-->
+        <!--<script src="../../../static/js/jquery.tablesort.js"></script>-->
+        <script type="text/javascript" th:src="@{/js/jquery.tablesort.js}"></script>
     </head>
     <body>
         <main>
             <h1>Books I have read</h1>
             <section>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Book Title</th>
+                            <!--<th>Author</th>-->
+                            <th>Duration</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr th:each="book : ${books}">
+                            <td th:text="${book.title}"></td>
+                            <td th:text="${book.duration}"></td>
+                        </tr>
 
+                    </tbody>
+                </table>
             </section>
 
         </main>
+        <!--<script>-->
+            <!--$(document).ready(function() {-->
+                <!--$('table').tablesort();-->
+            <!--});-->
+        <!--</script>-->
     </body>
 
 </html>
