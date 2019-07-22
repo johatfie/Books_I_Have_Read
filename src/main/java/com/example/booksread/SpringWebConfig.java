@@ -46,9 +46,12 @@ public class SpringWebConfig
     @Override
     public void addResourceHandlers(final ResourceHandlerRegistry registry) {
         super.addResourceHandlers(registry);
-        registry.addResourceHandler("/images/**").addResourceLocations("/images/");
-        registry.addResourceHandler("/css/**").addResourceLocations("/css/");
-        registry.addResourceHandler("/js/**").addResourceLocations("/js/");
+        //registry.addResourceHandler("/images/**").addResourceLocations("/images/");
+        //registry.addResourceHandler("/css/**").addResourceLocations("/css/");
+        //registry.addResourceHandler("/js/**").addResourceLocations("/js/");
+        registry.addResourceHandler("/images/**").addResourceLocations("classpath:/static/images/");
+        registry.addResourceHandler("/css/**").addResourceLocations("classpath:/static/css/");
+        registry.addResourceHandler("/js/**").addResourceLocations("classpath:/static/js/");
     }
 
     @Bean
@@ -83,26 +86,32 @@ public class SpringWebConfig
     /* **************************************************************** */
 
     @Bean
-    public SpringResourceTemplateResolver templateResolver(){
+    public SpringResourceTemplateResolver templateResolver() {
         // SpringResourceTemplateResolver automatically integrates with Spring's own
         // resource resolution infrastructure, which is highly recommended.
         SpringResourceTemplateResolver templateResolver = new SpringResourceTemplateResolver();
         templateResolver.setApplicationContext(this.applicationContext);
         //templateResolver.setPrefix("/WEB-INF/templates/");
         //templateResolver.setPrefix("/templates/");
+        //templateResolver.setPrefix("templates/");
+        //templateResolver.setPrefix("templates");
+        templateResolver.setPrefix("classpath:/templates/");
+        //templateResolver.setPrefix("classpath:templates");
+        //templateResolver.setPrefix("classpath:");
         //templateResolver.setPrefix("/src/main/resources/templates/");
         //templateResolver.setPrefix("/main/resources/templates/");
-        //templateResolver.setSuffix(".html");
+        templateResolver.setSuffix(".html");
         // HTML is the default value, added here for the sake of clarity.
         templateResolver.setTemplateMode(TemplateMode.HTML);
         // Template cache is true by default. Set to false if you want
         // templates to be automatically updated when modified.
-        templateResolver.setCacheable(true);
+        //templateResolver.setCacheable(true);
+        templateResolver.setCacheable(false);
         return templateResolver;
     }
 
     @Bean
-    public SpringTemplateEngine templateEngine(){
+    public SpringTemplateEngine templateEngine() {
         // SpringTemplateEngine automatically applies SpringStandardDialect and
         // enables Spring's own MessageSource message resolution mechanisms.
         SpringTemplateEngine templateEngine = new SpringTemplateEngine();
@@ -117,7 +126,7 @@ public class SpringWebConfig
     }
 
     @Bean
-    public ThymeleafViewResolver viewResolver(){
+    public ThymeleafViewResolver viewResolver() {
         ThymeleafViewResolver viewResolver = new ThymeleafViewResolver();
         viewResolver.setTemplateEngine(templateEngine());
         return viewResolver;

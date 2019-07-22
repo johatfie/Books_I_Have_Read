@@ -6,15 +6,24 @@
         <!--<script src="/jquery.tablesort.js"></script>-->
         <!--<script src="jquery.tablesort.js" th:src="@{/jquery.tablesort.js}"></script>-->
         <!--<script src="jquery.tablesort.js" th:src="@{/js/jquery.tablesort.js}"></script>-->
+        <!--<script src="jquery.tablesort.js" th:src="@{/resources/static/js/jquery.tablesort.js}"></script>-->
         <!--<script type="text/javascript" th:src="@{jquery.tablesort.js}"></script>-->
         <!--<script src="../../../static/js/jquery.tablesort.js"></script>-->
-        <script type="text/javascript" th:src="@{/js/jquery.tablesort.js}"></script>
+        <!--<script type="text/javascript"-->
+                <!--src="../static/js/jquery.tablesort.js"-->
+                <!--th:src="@{/js/jquery.tablesort.js}"></script>-->
+        <script type="text/javascript"
+                src="../static/js/jquery.tablesort.js"
+                th:src="@{/js/jquery.tablesort.js}"></script>
+        <link rel="stylesheet"
+                href="http://cdn.jsdelivr.net/webjars/bootstrap/4.3.1/css/bootstrap.min.css"
+                th:href="@{webjars/bootstrap/4.3.1/css/bootstrap.min.css}"/>
     </head>
     <body>
         <main>
             <h1>Books I have read</h1>
             <section>
-                <table>
+                <table id="table">
                     <thead>
                         <tr>
                             <th>Book Title</th>
@@ -33,11 +42,14 @@
             </section>
 
         </main>
-        <!--<script>-->
-            <!--$(document).ready(function() {-->
-                <!--$('table').tablesort();-->
-            <!--});-->
-        <!--</script>-->
+        <script>
+            $(document).ready(function() {
+                $('table').tablesort();
+            });
+        </script>
+        <script type="text/javascript"
+                src="http://cdn.jsdelivr.net/webjars/bootstrap/4.3.1/js/bootstrap.min.js"
+                th:src="@{webjars/bootstrap/4.3.1/js/bootstrap.min.js}"></script>
     </body>
 
 </html>
