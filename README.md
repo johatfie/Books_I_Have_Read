@@ -1,6 +1,6 @@
 # Books I Have Read
 
-Books I Have Read is a demo project to demonstrate my knowledge of Java 8, JPA, Spring Boot, REST, Maven, SQL, Thymeleaf, etc.
+Books I Have Read is a demo project to demonstrate my knowledge of Java 8, JPA, Spring Boot, Maven, SQL, Thymeleaf, etc.
 It uses an H2 in memory database, JPA, and Thymeleaf templates to display a page listing all the books I have read or listened to.
 It is currently a work in progress, however the basic functionality is there.  It loads the database at start up from SQL files.
 And displays the list on the search page.
