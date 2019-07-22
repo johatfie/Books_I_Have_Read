@@ -8,7 +8,7 @@
         <!--<script src="jquery.tablesort.js" th:src="@{/js/jquery.tablesort.js}"></script>-->
         <!--<script type="text/javascript" th:src="@{jquery.tablesort.js}"></script>-->
         <!--<script src="../../../static/js/jquery.tablesort.js"></script>-->
-        <script type="text/javascript" th:src="@{/js/jquery.tablesort.js}"></script>
+        <script type="text/javascript" src="../static/js/jquery.tablesort.js" th:src="@{/js/jquery.tablesort.js}"></script>
     </head>
     <body>
         <main>
@@ -33,11 +33,11 @@
             </section>
 
         </main>
-        <!--<script>-->
-            <!--$(document).ready(function() {-->
-                <!--$('table').tablesort();-->
-            <!--});-->
-        <!--</script>-->
+        <script>
+            $(document).ready(function() {
+                $('table').tablesort();
+            });
+        </script>
     </body>
 
 </html>
